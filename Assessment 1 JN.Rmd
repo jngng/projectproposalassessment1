@@ -48,6 +48,11 @@ knitr::opts_chunk$set(echo = TRUE)
 numberOfInternetUsers = read.csv('number-of-internet-users.csv')
 ```
 
+---
+
+
+#### Table 1 
+
 ```{r, echo = FALSE}
 options(scipen = 999)
 
@@ -102,6 +107,10 @@ kable(combinedSummary, format = "html", align = "c") %>% kable_styling(bootstrap
 })
 ```
 
+Table 1 provides the summary data for the years 1990, 2000, 2010 and 2020 based on the Number of Internet Users around the world. 
+
+The Minimum row presents the number of Internet users was 0 for 1990, 2000, and 2010. However in 2020, there was a significant increase showcasing a Minimum of 48,060 Internet users. This jump suggests a substantial growth in Internet users between 2010 and 2020, indicating the expansion and adoption of Internet. 
+
 
 ```{r, include = FALSE}
 
@@ -119,6 +128,10 @@ landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
 
 ```
 
+---
+
+
+#### Table 2
 
 ```{r, echo = FALSE}
 options(scipen = 999)
@@ -186,6 +199,9 @@ kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_
 
 ```
 
+Table 2 presents the summary data for the years 2000, 2005, 2010, 2015 and 2020 based on the number of Landline Internet Subscriptions globally. 
+
+It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements in Internet infrastructures, such as advancements like broadband and WIFI connections. These new structures allow for faster access and connection to the Internet, which may have resulting in the decrease of landline Internet subscriptions in these time periods. 
 
 ---
 
