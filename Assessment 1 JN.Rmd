@@ -1,5 +1,5 @@
 ---
-title: "Assessment 1 JN"
+title: "Collaborative and Reproducible Practices Project Proposal"
 author: "Jane Nguyen"
 date: "2023-06-03"
 output: html_document
@@ -53,10 +53,9 @@ numberOfInternetUsers = read.csv('number-of-internet-users.csv')
 
 #### Table 1 
 
-```{r, echo = FALSE}
-options(scipen = 999)
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
-suppressWarnings({
+options(scipen = 999)
 
 # 1990 data
 year1990 = 1990 
@@ -100,11 +99,10 @@ summary2020data = data.frame(Statistics = rownames(summary2020array), Values = s
 
 combinedSummary = bind_cols(summary1990data$Statistics,summary1990data$Values.Freq, summary2000data$Values.Freq, summary2010data$Values.Freq, summary2020data$Values.Freq)
 
-colnames(combinedSummary) <- c("Statistics", "1990", "2000", "2010", "2020")
+colnames(combinedSummary) = c("Statistics", "1990", "2000", "2010", "2020")
 
 kable(combinedSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 
-})
 ```
 
 Table 1 provides the summary data for the years 1990, 2000, 2010 and 2020 based on the Number of Internet Users around the world. 
@@ -133,10 +131,8 @@ landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
 
 #### Table 2
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 options(scipen = 999)
-
-suppressWarnings({
 
 # 2000 data
 year2000 = 2000 
@@ -190,12 +186,9 @@ summaryyear2020data = data.frame(Statistics = rownames(summary2020array), Values
 
 combineSummary = bind_cols(summaryyear2000data$Statistics,summaryyear2000data$Values.Freq, summaryyear2005data$Values.Freq, summaryyear2010data$Values.Freq, summaryyear2015data$Values.Freq, summaryyear2020data$Values.Freq)
 
-colnames(combineSummary) <- c("Statistics", "2000", "2005", "2010", "2015", "2020")
-
+colnames(combineSummary) = c("Statistics", "2000", "2005", "2010", "2015", "2020")
 
 kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
-
-})
 
 ```
 
@@ -377,11 +370,9 @@ The chart's depiction of the changing distribution of Internet adoption offers v
 
 #### Figure 7 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
 options(scipen = 999)
-
-suppressWarnings({
 
 landlineInternetSubscriptions2020 = filter(landlineInternetSubscriptions, Year == 2020)
 
@@ -396,8 +387,6 @@ g = ggplot() + geom_map(data = landlineInternetSubscriptions2020Map, map = landl
 
 g
 
-})
-
 ```
 
 The heat map provides a visual representation of the global distribution of fixed broadband subscriptions among countries. In 2020, China emerges as the clear leader, boasting an impressive 483.55 million fixed broadband subscriptions. This remarkable figure illustrates the significant dominance of China in terms of broadband adoption, with no other country coming close to matching its abundance of subscriptions.
@@ -410,11 +399,9 @@ While several countries such as the United States (121.18 million), Brazil (36.3
 
 #### Figure 8
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
 options(scipen = 999)
-
-suppressWarnings({
 
 landlineInternetSubscriptions2005 = filter(landlineInternetSubscriptions, Year == 2005)
 
@@ -425,8 +412,6 @@ landlineInternetSubscriptions2005Map = left_join(worldMap, landlineInternetSubsc
 h = ggplot() + geom_map(data = landlineInternetSubscriptions2005Map, map = landlineInternetSubscriptions2005Map, aes(x = long, y = lat, map_id = region, fill = Fixed.broadband.subscriptions), color = "black") + coord_equal() + theme_void() + scale_fill_gradient(low = "white", high = "darkred", name = "Fixed Broadband Subscriptions") + labs(title = "Fixed Broadband Subscriptions by Country in 2005")
 
 h
-
-})
 
 ```
 
