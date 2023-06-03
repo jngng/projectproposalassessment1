@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ### **Introduction** 
-final confirmation
+final confirmation 2
 As technology rapidly develops around the world, we recognises the Internet as an indispensable factor in the majority of people's daily lives. The Internet has created everlasting opportunities, revolutionising the way people access information, learn and communicate. Although the Internet has been a major character in our lives, it is important to understand that only 60% of the world's population have access and regularly utilise this technology. 
 
 This report explores the collected data related to the global population's exposure to the Internet. Furthermore, the report focuses on society's digital division. The collected data are analysed to gain valuable insights into factors that may contribute to the technological discrepancies; these may be due to socioeconomic factors, geographical regions or political agendas. 
