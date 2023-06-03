@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ### **Introduction** 
-final confirmation 2
+
 As technology rapidly develops around the world, we recognises the Internet as an indispensable factor in the majority of people's daily lives. The Internet has created everlasting opportunities, revolutionising the way people access information, learn and communicate. Although the Internet has been a major character in our lives, it is important to understand that only 60% of the world's population have access and regularly utilise this technology. 
 
 This report explores the collected data related to the global population's exposure to the Internet. Furthermore, the report focuses on society's digital division. The collected data are analysed to gain valuable insights into factors that may contribute to the technological discrepancies; these may be due to socioeconomic factors, geographical regions or political agendas. 
@@ -95,7 +95,7 @@ summary2020data = data.frame(Statistics = rownames(summary2020array), Values = s
 
 combinedSummary = bind_cols(summary1990data$Statistics,summary1990data$Values.Freq, summary2000data$Values.Freq, summary2010data$Values.Freq, summary2020data$Values.Freq)
 
-colnames(combinedSummary) <- c("Statistics", "Values 1990", "Values 2000", "Values 2010", "Values 2020")
+colnames(combinedSummary) <- c("Statistics", "1990", "2000", "2010", "2020")
 
 kable(combinedSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 
@@ -119,17 +119,72 @@ landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
 
 ```
 
-```{r, echo = FALSE}
 
+```{r, echo = FALSE}
 options(scipen = 999)
 
-# summary of Landline Internet Subscriptions data 
+suppressWarnings({
 
-summaryLandlineInternetSubscriptions = summary(landlineInternetSubscriptions[,c("Fixed.broadband.subscriptions")])
-summaryLandlineInternetSubscriptions
+# 2000 data
+year2000 = 2000 
+filtered2000 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2000, ]
+
+summary2000landlineInternetSubscriptions = summary(filtered2000 $ Fixed.broadband.subscriptions)
+
+summary2000array = as.array(summary2000landlineInternetSubscriptions)
+
+summaryyear2000data = data.frame(Statistics = rownames(summary2000array), Values = summary2000array, stringsAsFactors = FALSE)
+
+# 2005 data
+year2005 = 2005 
+filtered2005 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2005, ]
+
+summary2005landlineInternetSubscriptions = summary(filtered2005 $ Fixed.broadband.subscriptions)
+
+summary2005array = as.array(summary2005landlineInternetSubscriptions)
+
+summaryyear2005data = data.frame(Statistics = rownames(summary2005array), Values = summary2005array, stringsAsFactors = FALSE)
+
+# 2010 data
+year2010 = 2010 
+filtered2010 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2010, ]
+
+summary2010landlineInternetSubscriptions = summary(filtered2010 $ Fixed.broadband.subscriptions)
+
+summary2010array = as.array(summary2010landlineInternetSubscriptions)
+
+summaryyear2010data = data.frame(Statistics = rownames(summary2010array), Values = summary2010array, stringsAsFactors = FALSE)
+
+# 2015 data
+year2015 = 2015 
+filtered2015 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2015, ]
+
+summary2015landlineInternetSubscriptions = summary(filtered2015 $ Fixed.broadband.subscriptions)
+
+summary2015array = as.array(summary2015landlineInternetSubscriptions)
+
+summaryyear2015data = data.frame(Statistics = rownames(summary2015array), Values = summary2015array, stringsAsFactors = FALSE)
+
+# 2020 data
+year2020 = 2020 
+filtered2020 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2020, ]
+
+summary2020landlineInternetSubscriptions = summary(filtered2020 $ Fixed.broadband.subscriptions)
+
+summary2020array = as.array(summary2020landlineInternetSubscriptions)
+
+summaryyear2020data = data.frame(Statistics = rownames(summary2020array), Values = summary2020array, stringsAsFactors = FALSE)
+
+combineSummary = bind_cols(summaryyear2000data$Statistics,summaryyear2000data$Values.Freq, summaryyear2005data$Values.Freq, summaryyear2010data$Values.Freq, summaryyear2015data$Values.Freq, summaryyear2020data$Values.Freq)
+
+colnames(combineSummary) <- c("Statistics", "2000", "2005", "2010", "2015", "2020")
+
+
+kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+})
 
 ```
-
 
 
 ---
