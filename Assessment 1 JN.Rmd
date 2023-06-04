@@ -55,9 +55,7 @@ The following report contains 3 different data sets collected from [Our World in
 # read in data of Number of Internet Users 
 
 # another commend to test whether i can create a conflict 
-=======
-# this is different 
->>>>>>> testing
+
 numberOfInternetUsers = read.csv('number-of-internet-users.csv')
 
 # get variables from data set 
