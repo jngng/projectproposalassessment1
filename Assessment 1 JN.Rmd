@@ -54,7 +54,7 @@ The following report contains 3 different data sets collected from [Our World in
 
 # read in data of Number of Internet Users 
 
-numberOfInternetUsers = read.csv('number-of-internet-users.csv')
+numberOfInternetUsers = read.csv('Data/number-of-internet-users.csv')
 
 # get variables from data set 
 
@@ -76,7 +76,7 @@ kable(numberOfInternetUsersVariables, format = "html", align = "c") %>%
 
 # read in data of Individuals using the Internet  
 
-individualsUsingInternet = read.csv('share-of-individuals-using-the-internet.csv')
+individualsUsingInternet = read.csv('Data/share-of-individuals-using-the-internet.csv')
 
 # get variables from data set 
 
@@ -98,7 +98,7 @@ kable(individualsUsingInternetVariables, format = "html", align = "c") %>%
 
 # read in data of Landline Internet Subscriptions
 
-landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
+landlineInternetSubscriptions = read.csv('Data/landline-internet-subscriptions.csv')
 
 # get variables from data set 
 
