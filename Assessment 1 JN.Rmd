@@ -48,7 +48,7 @@ Research Questions:
 
 The following report contains 3 different data sets collected from [Our World in Data - Internet](https://ourworldindata.org/internet) (Our World in Data, n.d.). The first data set explores the Number of Internet Users around the world, the second data set provides information on the proportion of individuals using the Internet and the last set focuses on the number of landline Internet subscriptions.      
 
-Data Set 1 contains variables: 'Entity', 'Code', 'Year' and 'Number of Internet Users'
+**Data Set 1** contains variables: 'Entity', 'Code', 'Year' and 'Number of Internet Users'
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -70,7 +70,7 @@ kable(numberOfInternetUsersVariables, format = "html", align = "c") %>%
 ```
 
 
-Data Set 2 contains variables: 'Entity', 'Code', 'Year' and 'Individuals using the Internet (% of population)'    
+**Data Set 2** contains variables: 'Entity', 'Code', 'Year' and 'Individuals using the Internet (% of population)'    
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -92,7 +92,7 @@ kable(individualsUsingInternetVariables, format = "html", align = "c") %>%
 ```
 
 
-Data Set 3 contains variables: 'Entity', 'Code', 'Year' and 'Fixed Broadband Subscriptions'     
+**Data Set 3** contains variables: 'Entity', 'Code', 'Year' and 'Fixed Broadband Subscriptions'     
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -118,7 +118,7 @@ kable(landlineInternetSubscriptionsVariables, format = "html", align = "c") %>%
 
 ### **Data Set Description**    
 
-Data Set 1 contains 25,516 observations and is 205,432 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Number of Internet Users').         
+**Data Set 1** contains 25,516 observations and is 205,432 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Number of Internet Users').         
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -140,8 +140,16 @@ cat("The number of observations in Data Set 1 is:", totalDataSet1Size )
 
 ```
 
+```{r, echo = FALSE}
 
-Data Set 2 contains 26,132 observations and is 210,248 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Individuals using the Internet (% of population)').    
+# image attached of code and output of data set 1 
+
+knitr::include_graphics('Image/Data Set 1 Size Code and Output.png')
+
+```
+
+
+**Data Set 2** contains 26,132 observations and is 210,248 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Individuals using the Internet (% of population)').    
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -163,8 +171,15 @@ cat("The number of observations in Data Set 2 is:", totalDataSet2Size )
 
 ```
 
+```{r, echo = FALSE}
 
-Data Set 3 contains 15,576 observations and is 135,568 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Fixed Broadband Subscriptions').    
+# image attached of code and output of data set 2 
+
+knitr::include_graphics('Image/Data Set 2 Size Code and Output.png')
+
+```
+
+**Data Set 3** contains 15,576 observations and is 135,568 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Fixed Broadband Subscriptions').    
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -183,6 +198,14 @@ dataSet3SizeNumberOfColumns = dataSet3Size[2]
 totalDataSet3Size = dataSet3SizeNumberOfRows * dataSet3SizeNumberOfColumns
 
 cat("The number of observations in Data Set 3 is:", totalDataSet3Size )
+
+```
+
+```{r, echo = FALSE}
+
+# image attached of code and output of data set 3 
+
+knitr::include_graphics('Image/Data Set 3 Size Code and Output.png')
 
 ```
 
@@ -251,7 +274,7 @@ The Minimum row presents the number of Internet users was 0 for 1990, 2000, and 
 ---
 
 
-#### Table 2
+#### Table 2 - Data Set 3
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 options(scipen = 999)
