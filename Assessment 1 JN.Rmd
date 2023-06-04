@@ -25,15 +25,14 @@ library(knitr)
 library(kableExtra)
 library(countrycode)
 
-getwd()
-
 knitr::opts_chunk$set(echo = TRUE)
+
 ```
 
 
 ### **Introduction** 
 
-As technology rapidly develops around the world, the Internet is is an indespensible factor in the majority of people's daily lives as it has created a multitude of opportunities and revolutionised the way we learn, work and communicate. Although most of us use the Internet regularly, it is important to recognise that only 60% of the world's population is present online in 2020. 
+As technology rapidly develops around the world, the Internet is is an indispensable factor in the majority of people's daily lives as it has created a multitude of opportunities and revolutionised the way we learn, work and communicate. Although most of us use the Internet regularly, it is important to recognise that only 60% of the world's population is present online in 2020. 
 
 This report explores the collected data related to the global population's exposure to the Internet. The collected data are analysed to gain valuable insights into factors that may contribute to the technological discrepancies; these may be due to socioeconomic factors, geographical regions or political agendas.     
 
@@ -354,7 +353,7 @@ kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_
 
 **Table 2** presents the summary data for the years 2000, 2005, 2010, 2015 and 2020 based on the number of Landline Internet Subscriptions globally. 
 
-It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements of Internet infrastructures, such as advancements like broadband and WIFI connections. These new structures allow for faster access and connection to the Internet, which may have resulted in the decrease of landline Internet subscriptions in these time periods. 
+It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements of Internet infrastructures. These new structures allow for faster access and connection to the Internet, which may have resulted in the decrease of landline Internet subscriptions in these time periods. 
 
 ---
 
@@ -610,6 +609,7 @@ The line chart presents the distribution of fixed broadband subscriptions across
 - The chart reveals that the Middle Income demographic exhibits the highest number of fixed broadband subscriptions, followed by the Upper Middle Income category in the second position. This observation suggests that countries falling within these income brackets have a higher level of adoption and access to fixed broadband services.
 
 - It is worth recognising that while the High Income demographic is traditionally associated with greater wealth, the population size may be smaller in comparison to the Middle Income and Upper Middle Income groups. Consequently, the overall number of fixed broadband subscriptions within the High Income category is relatively lower than those of the Middle Income and Upper Middle Income categories due to the smaller population size.
+
 
 ---
 
