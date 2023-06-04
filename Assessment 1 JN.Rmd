@@ -226,8 +226,9 @@ knitr::include_graphics('Image/Data Set 3 Size Code and Output.png')
 
 ---
 
+### **Data Summary**     
 
-#### Table 1 - Data Set 1 
+#### Table 1 - Data Set 1    
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -287,7 +288,6 @@ The Minimum row presents the number of Internet users was 0 for 1990, 2000, and 
 
 
 ---
-
 
 #### Table 2 - Data Set 3
 
@@ -354,7 +354,7 @@ kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_
 
 **Table 2** presents the summary data for the years 2000, 2005, 2010, 2015 and 2020 based on the number of Landline Internet Subscriptions globally. 
 
-It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements in Internet infrastructures, such as advancements like broadband and WIFI connections. These new structures allow for faster access and connection to the Internet, which may have resulting in the decrease of landline Internet subscriptions in these time periods. 
+It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements of Internet infrastructures, such as advancements like broadband and WIFI connections. These new structures allow for faster access and connection to the Internet, which may have resulted in the decrease of landline Internet subscriptions in these time periods. 
 
 ---
 
