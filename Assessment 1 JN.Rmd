@@ -1,20 +1,9 @@
 ---
-title: "Assessment 1 JN"
+title: "Collaborative and Reproducible Practices Project Proposal"
 author: "Jane Nguyen"
 date: "2023-06-03"
 output: html_document
 ---
-
-### **Introduction** 
-testing
-As technology rapidly develops around the world, we recognises the Internet as an indispensable factor in the majority of people's daily lives. The Internet has created everlasting opportunities, revolutionising the way people access information, learn and communicate. Although the Internet has been a major character in our lives, it is important to understand that only 60% of the world's population have access and regularly utilise this technology. 
-
-This report explores the collected data related to the global population's exposure to the Internet. Furthermore, the report focuses on society's digital division. The collected data are analysed to gain valuable insights into factors that may contribute to the technological discrepancies; these may be due to socioeconomic factors, geographical regions or political agendas. 
-
-Main Questions to Explore:     
-- What are the factors that contribute and have effects on the region's/country's Internet usage?      
-- Did COVID-19 affect the world's Internet usage and digital connectivity?      
-
 
 
 ```{r setup, include = FALSE}
@@ -41,17 +30,209 @@ getwd()
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, include = FALSE}
+
+### **Introduction** 
+
+As technology rapidly develops around the world, the Internet is is an indespensible factor in the majority of people's daily lives as it has created a multitude of opportunities and revolutionised the way we learn, work and communicate. Although most of us use the Internet regularly, it is important to recognise that only 60% of the world's population is present online in 2020. 
+
+This report explores the collected data related to the global population's exposure to the Internet. The collected data are analysed to gain valuable insights into factors that may contribute to the technological discrepancies; these may be due to socioeconomic factors, geographical regions or political agendas.     
+
+Research Questions:     
+- What are the factors that contribute and have effects on the region's/country's Internet usage?      
+- Did COVID-19 affect the world's Internet usage and digital connectivity?      
+
+
+---
+
+### **Data Set Introduction** 
+
+The following report contains 3 different data sets collected from [Our World in Data - Internet](https://ourworldindata.org/internet) (Our World in Data, n.d.). The first data set explores the Number of Internet Users around the world, the second data set provides information on the proportion of individuals using the Internet and the last set focuses on the number of landline Internet subscriptions.      
+
+**Data Set 1** contains variables: 'Entity', 'Code', 'Year' and 'Number of Internet Users'
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
 # read in data of Number of Internet Users 
 
 numberOfInternetUsers = read.csv('number-of-internet-users.csv')
+
+# get variables from data set 
+
+dataSet1Variables = names(numberOfInternetUsers)
+
+numberOfInternetUsersVariables = data.frame(Variables = dataSet1Variables)
+
+# display variables using kable()
+
+kable(numberOfInternetUsersVariables, format = "html", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+```
+
+
+**Data Set 2** contains variables: 'Entity', 'Code', 'Year' and 'Individuals using the Internet (% of population)'    
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# read in data of Individuals using the Internet  
+
+individualsUsingInternet = read.csv('share-of-individuals-using-the-internet.csv')
+
+# get variables from data set 
+
+dataSet2Variables = names(individualsUsingInternet)
+
+individualsUsingInternetVariables = data.frame(Variables = dataSet2Variables)
+
+# display variables using kable()
+
+kable(individualsUsingInternetVariables, format = "html", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+```
+
+
+**Data Set 3** contains variables: 'Entity', 'Code', 'Year' and 'Fixed Broadband Subscriptions'     
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# read in data of Landline Internet Subscriptions
+
+landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
+
+# get variables from data set 
+
+dataSet3Variables = names(landlineInternetSubscriptions)
+
+landlineInternetSubscriptionsVariables = data.frame(Variables = dataSet3Variables)
+
+# display variables using kable()
+
+kable(landlineInternetSubscriptionsVariables, format = "html", align = "c") %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+```
+
+
+---
+
+### **Data Set Description**    
+
+**Data Set 1** contains 25,516 total data points, 6,379 observations and is 205,432 in bytes size. It overall has 4 variables: 2 of them are Character variables ('Entity' and 'Code'), 1 is an Integer variable ('Year') and 1 is a Numeric variable ('Number of Internet Users').         
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get byte size of data set 1 
+
+dataSet1BytesSize = object.size(numberOfInternetUsers) 
+
+cat("The byte size in Data Set 1 is:", dataSet1BytesSize , "\n")
+
+# get total data points of data set 1
+
+dataSet1Size = dim(numberOfInternetUsers)
+dataSet1SizeNumberOfRows = dataSet1Size[1]
+dataSet1SizeNumberOfColumns = dataSet1Size[2]
+
+totalDataSet1Size = dataSet1SizeNumberOfRows * dataSet1SizeNumberOfColumns
+
+cat("The total number of data points in Data Set 1 is:", totalDataSet1Size , "\n" , "\n" )
+
+# get number of observations and variable types of data set 1 
+
+str(numberOfInternetUsers)
+
 ```
 
 ```{r, echo = FALSE}
-options(scipen = 999)
 
-suppressWarnings({
+# image attached of code and output of data set 1 
+
+knitr::include_graphics('Image/Data Set 1 Size Code and Output.png')
+
+```
+
+---     
+
+**Data Set 2** contains 26,132 total data points, 6,533 observations and is 210,248 in bytes size. It overall has 4 variables: 2 of them are Character variables ('Entity' and 'Code'), 1 is an Integer variable ('Year') and 1 is a Numeric variable ('Individuals using the Internet (% of population)').       
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get size of data set 2
+
+dataSet2BytesSize = object.size(individualsUsingInternet) 
+
+cat("The byte size in Data Set 2 is:", dataSet2BytesSize , "\n")
+
+# get total data points of data set 2
+
+dataSet2Size = dim(individualsUsingInternet)
+dataSet2SizeNumberOfRows = dataSet2Size[1]
+dataSet2SizeNumberOfColumns = dataSet2Size[2]
+
+totalDataSet2Size = dataSet2SizeNumberOfRows * dataSet2SizeNumberOfColumns
+
+cat("The total number of data points in Data Set 2 is:", totalDataSet2Size , "\n" , "\n")
+
+# get number of observations and variable types of data set 2
+
+str(individualsUsingInternet)
+
+```
+
+```{r, echo = FALSE}
+
+# image attached of code and output of data set 2 
+
+knitr::include_graphics('Image/Data Set 2 Size Code and Output.png')
+
+```
+
+---    
+
+**Data Set 3** contains 15,576 total data points, 3,894 observations and is 135,568 in bytes size. It overall has 4 variables: 2 of them are Character variables ('Entity' and 'Code'), 1 is an Integer variable ('Year') and 1 is a Numeric variable ('Fixed Broadband Subscriptions').       
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get size of data set 3
+
+dataSet3BytesSize = object.size(landlineInternetSubscriptions) 
+
+cat("The byte size in Data Set 3 is:", dataSet3BytesSize , "\n")
+
+# get total data points of data set 3
+
+dataSet3Size = dim(landlineInternetSubscriptions)
+dataSet3SizeNumberOfRows = dataSet3Size[1]
+dataSet3SizeNumberOfColumns = dataSet3Size[2]
+
+totalDataSet3Size = dataSet3SizeNumberOfRows * dataSet3SizeNumberOfColumns
+
+cat("The total number of data points in Data Set 3 is:", totalDataSet3Size , "\n" , "\n")
+
+# get number of observations and variable types of data set 3
+
+str(landlineInternetSubscriptions)
+
+```
+
+```{r, echo = FALSE}
+
+# image attached of code and output of data set 3 
+
+knitr::include_graphics('Image/Data Set 3 Size Code and Output.png')
+
+```
+
+---
+
+### **Data Summary**     
+
+#### Table 1 - Data Set 1    
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+options(scipen = 999)
 
 # 1990 data
 year1990 = 1990 
@@ -95,45 +276,89 @@ summary2020data = data.frame(Statistics = rownames(summary2020array), Values = s
 
 combinedSummary = bind_cols(summary1990data$Statistics,summary1990data$Values.Freq, summary2000data$Values.Freq, summary2010data$Values.Freq, summary2020data$Values.Freq)
 
-colnames(combinedSummary) <- c("Statistics", "Values 1990", "Values 2000", "Values 2010", "Values 2020")
+colnames(combinedSummary) = c("Statistics", "1990", "2000", "2010", "2020")
 
 kable(combinedSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 
-})
 ```
 
+**Table 1** provides the summary data for the years 1990, 2000, 2010 and 2020 based on the Number of Internet Users around the world.    
 
-```{r, include = FALSE}
-
-# read in data of Individuals using the Internet  
-
-individualsUsingInternet = read.csv('share-of-individuals-using-the-internet.csv')
-```
-
-
-```{r, include = FALSE}
-
-# read in data of Landline Internet Subscriptions
-
-landlineInternetSubscriptions = read.csv('landline-internet-subscriptions.csv')
-
-```
-
-```{r, echo = FALSE}
-
-options(scipen = 999)
-
-# summary of Landline Internet Subscriptions data 
-
-summaryLandlineInternetSubscriptions = summary(landlineInternetSubscriptions[,c("Fixed.broadband.subscriptions")])
-summaryLandlineInternetSubscriptions
-
-```
-
+The Minimum row presents the number of Internet users was 0 for 1990, 2000, and 2010. However in 2020, there was a significant increase showcasing a Minimum of 48,060 Internet users. This jump suggests a substantial growth in Internet users between 2010 and 2020, indicating the expansion and adoption of Internet.    
 
 
 ---
 
+#### Table 2 - Data Set 3
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+options(scipen = 999)
+
+# 2000 data
+year2000 = 2000 
+filtered2000 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2000, ]
+
+summary2000landlineInternetSubscriptions = summary(filtered2000 $ Fixed.broadband.subscriptions)
+
+summary2000array = as.array(summary2000landlineInternetSubscriptions)
+
+summaryyear2000data = data.frame(Statistics = rownames(summary2000array), Values = summary2000array, stringsAsFactors = FALSE)
+
+# 2005 data
+year2005 = 2005 
+filtered2005 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2005, ]
+
+summary2005landlineInternetSubscriptions = summary(filtered2005 $ Fixed.broadband.subscriptions)
+
+summary2005array = as.array(summary2005landlineInternetSubscriptions)
+
+summaryyear2005data = data.frame(Statistics = rownames(summary2005array), Values = summary2005array, stringsAsFactors = FALSE)
+
+# 2010 data
+year2010 = 2010 
+filtered2010 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2010, ]
+
+summary2010landlineInternetSubscriptions = summary(filtered2010 $ Fixed.broadband.subscriptions)
+
+summary2010array = as.array(summary2010landlineInternetSubscriptions)
+
+summaryyear2010data = data.frame(Statistics = rownames(summary2010array), Values = summary2010array, stringsAsFactors = FALSE)
+
+# 2015 data
+year2015 = 2015 
+filtered2015 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2015, ]
+
+summary2015landlineInternetSubscriptions = summary(filtered2015 $ Fixed.broadband.subscriptions)
+
+summary2015array = as.array(summary2015landlineInternetSubscriptions)
+
+summaryyear2015data = data.frame(Statistics = rownames(summary2015array), Values = summary2015array, stringsAsFactors = FALSE)
+
+# 2020 data
+year2020 = 2020 
+filtered2020 = landlineInternetSubscriptions[landlineInternetSubscriptions $ Year == year2020, ]
+
+summary2020landlineInternetSubscriptions = summary(filtered2020 $ Fixed.broadband.subscriptions)
+
+summary2020array = as.array(summary2020landlineInternetSubscriptions)
+
+summaryyear2020data = data.frame(Statistics = rownames(summary2020array), Values = summary2020array, stringsAsFactors = FALSE)
+
+combineSummary = bind_cols(summaryyear2000data$Statistics,summaryyear2000data$Values.Freq, summaryyear2005data$Values.Freq, summaryyear2010data$Values.Freq, summaryyear2015data$Values.Freq, summaryyear2020data$Values.Freq)
+
+colnames(combineSummary) = c("Statistics", "2000", "2005", "2010", "2015", "2020")
+
+kable(combineSummary, format = "html", align = "c") %>% kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+```
+
+**Table 2** presents the summary data for the years 2000, 2005, 2010, 2015 and 2020 based on the number of Landline Internet Subscriptions globally. 
+
+It is interesting to note that the Minimum values decreased between 2000 and 2005 as well as between 2015 and 2020. Similarly, the 25th percentile (1st Quartile) values from 2000 to 2005 also experienced a downward trend. This decline can be attributed to the improvements of Internet infrastructures, such as advancements like broadband and WIFI connections. These new structures allow for faster access and connection to the Internet, which may have resulted in the decrease of landline Internet subscriptions in these time periods. 
+
+---
+
+### **Visualisations**      
 
 #### Figure 1
 
@@ -151,17 +376,15 @@ a
 
 ```
 
-The chart presents the number of people who have used the Internet in the past 3 months. The variables have been sub-divided into geographical locations to demonstrate a more thorough analysis on the increase of Internet users. 
+<i>Figure 1</i> presents the number of people who have used the Internet in the past 3 months. The variables have been sub-divided into geographical locations to demonstrate a more thorough analysis on the increase of Internet users. 
 
-The variable 'World' presents as the highest number of Internet users as it calculates the total globally. The analysis shows the region 'Asia' with the highest number of Internet users. This is consistent from the year 2002 as 'Asia' surpassed the region 'North America' in Internet users, with 212.70 million and 205.26 million users respectively. Before 2002, the region 'North America' had the leading number of Internet users. Furthermore, in 2003, the geographical region 'Europe' also surpassed 'North America' with 227.61 million and 218.60 million Internet users respectively. 
+- The variable 'World' presents as the highest number of Internet users as it calculates the total globally. The graph shows the region 'Asia' with the highest number of Internet users. This is consistent from the year 2002 as 'Asia' surpassed the region 'North America' in Internet users, with 212.70 million and 205.26 million users respectively. Before 2002, the region 'North America' had the leading number of Internet users. Furthermore, in 2003, the geographical region 'Europe' also surpassed 'North America' with 227.61 million and 218.60 million Internet users respectively. 
 
-In 2020, 'Asia' recorded an impressive 2.55 billion Internet users, accounting for 54% of the global total represented by the 'World' variable, which stood at 4.70 billion users. This highlights the significant presence of 'Asia' in the global Internet landscape. Moreover, since 2006, 'Asia' has experienced rapid growth in Internet users, surpassing the growth rates of other geographical regions.
+- In 2020, 'Asia' recorded an impressive 2.55 billion Internet users, accounting for 54% of the global total represented by the 'World' variable, which stood at 4.70 billion users. This highlights the significant presence of 'Asia' in the global Internet landscape. Moreover, since 2006, 'Asia' has experienced rapid growth in Internet users, surpassing the growth rates of other geographical regions.
 
-Interestingly, the region 'Oceania' shows the lowest growth in Internet users compared to other regions. This could be attributed to the smaller populations of Pacific islands within this region, which may limit the overall growth of Internet usage.
+- The region 'Oceania' shows the lowest growth in Internet users compared to other regions. This could be attributed to the smaller populations of Pacific islands within this region, which may limit the overall growth of Internet usage.
 
-Furthermore, it is worth noting a significant surge in Internet users from 2019 to 2020, particularly when considering the 'World' entity. This notable increase can be attributed to various factors, with the COVID-19 pandemic playing a significant role. The global outbreak prompted many countries to implement work-from-home measures and social distancing protocols, leading to a substantial rise in Internet usage.
-
-As people worldwide were required to adapt to remote work setups, online learning platforms, and virtual communication tools, the reliance on the Internet grew exponentially. Moreover, the necessity for individuals to isolate themselves physically resulted in an increased reliance on online platforms for various activities, including entertainment, shopping, and social interactions.
+- It is worth noting a significant surge in Internet users from 2019 to 2020, particularly when considering the 'World' entity. This notable increase can be attributed to various factors, with the COVID-19 pandemic playing a significant role. The global outbreak prompted many countries to implement work from home measures and social distancing protocols, leading to a substantial rise in Internet usage.
 
 
 ---
@@ -189,11 +412,14 @@ b
 
 ```
 
-The bar graph showcases the top 15 countries with the highest number of Internet users in 2020. Remarkably, China takes the lead, followed by India in second place and the United States in third. This ranking highlights the influence of population density on the number of Internet users, with highly populous countries such as China and India claiming the top positions.
+<i>Figure 2</i> showcases the top 15 countries with the highest number of Internet users in 2020.
 
-China's position at the top of the list can be attributed to its enormous population, which naturally leads to a larger user base. Similarly, India's second-place ranking is also a reflection of its substantial population size. The United States, known for its technological advancements and widespread Internet accessibility, secures a prominent position in the ranking despite having a smaller population compared to China and India.
+- China takes the lead, followed by India in second place and the United States in third. This ranking highlights the influence of population density on the number of Internet users, with highly populous countries such as China and India claiming the top positions.
 
-The data underscores the significance of population size when examining the number of Internet users in each country. Countries with larger populations are more likely to have a higher number of Internet users, as the potential user base is larger.
+- China's position at the top of the list can be attributed to its enormous population, which naturally leads to a larger user base. Similarly, India's second-place ranking is also a reflection of its substantial population size. The United States is known for its technological advancements and widespread Internet accessibility. They secured a prominent position in the ranking despite having a smaller population compared to China and India.
+
+- The data shows the significance of population size when examining the number of Internet users in each country. Countries with larger populations are more likely to have a higher number of Internet users as the potential user base is larger.
+
 
 ---
 
@@ -222,7 +448,7 @@ c
 
 The bar graph displays the bottom 15 countries in terms of Internet usage in 2020. These countries appear in this ranking due to their smaller population sizes, which directly impacts the overall frequency of Internet usage.
 
-The graph highlights the correlation between population size and Internet usage, as countries with smaller populations tend to have lower rates of Internet adoption. Consequently, these countries find themselves in the lower positions of the ranking.
+- The graph highlights the correlation between population size and Internet usage, as countries with smaller populations tend to have lower rates of Internet adoption. Consequently, these countries find themselves in the lower positions of the ranking.
 
 
 ---
@@ -244,11 +470,11 @@ d
 
 ```
 
-The graph consists of four boxplots, representing different socioeconomic backgrounds: High Income Countries, Low Income Countries, Lower Middle Income Countries, and Upper Middle Income Countries.
+<i>Figure 4</i> consists of four boxplots, representing different socioeconomic backgrounds: High Income Countries, Low Income Countries, Lower Middle Income Countries, and Upper Middle Income Countries.
 
-A notable observation is that the Upper Middle Income Countries exhibit the largest range in terms of the socioeconomic variables being analysed. This indicates a wider variation within this group, encompassing countries with diverse economic conditions and levels of development.
+- The Upper Middle Income Countries exhibits the largest range in terms of the socioeconomic variables being analysed. This indicates a wider variation within this group, containing countries with diverse economic conditions and developments.
 
-On the other hand, the boxplot for High Income Countries reveals the highest median among the four groups. This suggests that, on average, countries classified as High Income have higher values for the socioeconomic variables compared to the other categories.
+- The boxplot for High Income Countries reveals the highest median among the four groups. This suggests that, on average, countries classified as High Income have higher values for the socioeconomic variables compared to the other categories.
 
 
 ---
@@ -272,9 +498,9 @@ e
 
 The line chart illustrates the percentage of population engaging in Internet usage within the past 3 months. The 'World' entity serves as the reference point for the standard percentage of Internet usage. From the chart, we can observe that entities such as 'North America', 'Europe and Central Asia', 'Middle East and North Africa', 'Latin America and Caribbean', and 'East Asia and Pacific' surpass the 'World' standard in terms of Internet usage.
 
-One notable factor contributing to the high percentage in 'Europe and Central Asia' is the significant population density in this region, particularly due to countries like China. As previously mentioned, China stands out as the country with the highest number of Internet users globally. This prevalence of Internet usage in China contributes to the relatively high percentage observed in the 'Europe and Central Asia' entity.
+- A notable factor contributing to the high percentage in 'Europe and Central Asia' is the significant population density in this region, particularly due to countries like China. As previously mentioned, China stands out as the country with the highest number of Internet users globally. This prevalence of Internet usage in China contributes to the relatively high percentage observed in the 'Europe and Central Asia' entity.
 
-By examining the deviations from the 'World' standard across different regions, we gain insights into the varying levels of Internet adoption and usage worldwide. It highlights regions that have surpassed the global average, indicating higher levels of connectivity and digital engagement.
+- By examining the deviations from the 'World' standard across different regions, we gain insights into the varying levels of Internet adoption and usage worldwide. 
 
 
 ---
@@ -294,11 +520,11 @@ f
 
 ```
 
-The stacked bar chart provides a visual depiction of the distribution of individuals using the Internet across different regions. This chart enables us to clearly observe the transition of Internet adoption in these regions over the years.
+The stacked bar chart provides a visual presentation of the distribution of individuals using the Internet across different regions. This chart enables us to clearly observe the transition of Internet adoption in these regions over the years.
 
-In 1990, 'North America' emerges as the dominant region in terms of Internet usage. However, as subsequent years unfold, the distribution gradually shifts towards a more balanced allocation across regions.
+- In 1990, 'North America' emerges as the dominant region in terms of Internet usage. However overtime, the distribution gradually shifts towards a more balanced allocation across regions.
 
-The chart's depiction of the changing distribution of Internet adoption offers valuable insights into the global landscape of connectivity. It highlights the progress made by various regions in embracing and incorporating Internet technologies into their societies.
+- The chart's depiction of the changing distribution of Internet adoption offers valuable insights into the global landscape of connectivity. It highlights the progress made by various regions in embracing and incorporating Internet technologies into their societies.
 
 
 ---
@@ -306,11 +532,9 @@ The chart's depiction of the changing distribution of Internet adoption offers v
 
 #### Figure 7 
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
 options(scipen = 999)
-
-suppressWarnings({
 
 landlineInternetSubscriptions2020 = filter(landlineInternetSubscriptions, Year == 2020)
 
@@ -325,13 +549,13 @@ g = ggplot() + geom_map(data = landlineInternetSubscriptions2020Map, map = landl
 
 g
 
-})
-
 ```
 
-The heat map provides a visual representation of the global distribution of fixed broadband subscriptions among countries. In 2020, China emerges as the clear leader, boasting an impressive 483.55 million fixed broadband subscriptions. This remarkable figure illustrates the significant dominance of China in terms of broadband adoption, with no other country coming close to matching its abundance of subscriptions.
+The heat map provides a visual representation of the global distribution of fixed broadband subscriptions among countries. 
 
-While several countries such as the United States (121.18 million), Brazil (36.34 million), Germany (36.22 million), and Russia (33.89 million) exhibit substantial subscription numbers, they are still considerably lower when compared to China's vast number of subscriptions. The discrepancy highlights China's unparalleled position in the global broadband landscape.
+- In 2020, China emerges as the clear leader, sitting at 483.55 million fixed broadband subscriptions. This remarkable figure indicates the country's dominance in terms of broadband adoption, with no other country coming close to matching its number of subscriptions.
+
+- While several countries such as the United States (121.18 million), Brazil (36.34 million), Germany (36.22 million) and Russia (33.89 million) exhibit substantial subscription numbers, they are still considerably low when compared to China's vast number of subscriptions.
 
 
 ---
@@ -339,11 +563,9 @@ While several countries such as the United States (121.18 million), Brazil (36.3
 
 #### Figure 8
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
 options(scipen = 999)
-
-suppressWarnings({
 
 landlineInternetSubscriptions2005 = filter(landlineInternetSubscriptions, Year == 2005)
 
@@ -355,13 +577,13 @@ h = ggplot() + geom_map(data = landlineInternetSubscriptions2005Map, map = landl
 
 h
 
-})
-
 ```
 
-The heat map showcases the global fixed broadband subscription in the year 2005, highlighting the number of subscriptions by country. Notably, the United States claims the top position with the highest number of fixed broadband subscriptions, reaching 51.16 million subscriptions during that year. China also holds a significant position in the ranking, with 37.35 million subscriptions.
+<i>Figure 8</i> showcases the global fixed broadband subscription in the year 2005, highlighting the number of subscriptions by country. 
 
-This data reflects the prominence of the United States and China in terms of fixed broadband adoption in 2005. The United States, known for its technological advancements and infrastructure, demonstrates a strong presence in the broadband market. Similarly, China's growing economy and population contribute to its high number of fixed broadband subscriptions during that period.
+- In 2005, the United States claims the top position with the highest number of fixed broadband subscriptions, reaching 51.16 million subscriptions. China also holds a significant position in the ranking, with 37.35 million subscriptions.
+
+- This data reflects the prominence of the United States and China in terms of fixed broadband adoption in 2005. The United States, known for its technological advancements and infrastructure, demonstrates a strong presence of Internet subscriptions. Similarly, China's growing economy and population contribute to its high number of fixed broadband subscriptions during that period.
 
 
 ---
@@ -383,11 +605,11 @@ i
 
 ```
 
-The line chart illustrates the distribution of fixed broadband subscriptions across different sociodemographic categories, including High Income, Low and Middle Income, Low Income, Lower Middle Income, Middle Income, and Upper Middle Income.
+The line chart presents the distribution of fixed broadband subscriptions across different sociodemographic categories, including High Income, Low and Middle Income, Low Income, Lower Middle Income, Middle Income, and Upper Middle Income.
 
-Analysis of the chart reveals that the Middle Income demographic exhibits the highest number of fixed broadband subscriptions, followed by the Upper Middle Income category in the second position. This observation suggests that countries falling within these income brackets have a higher level of adoption and access to fixed broadband services.
+- The chart reveals that the Middle Income demographic exhibits the highest number of fixed broadband subscriptions, followed by the Upper Middle Income category in the second position. This observation suggests that countries falling within these income brackets have a higher level of adoption and access to fixed broadband services.
 
-However, it is worth recognising that while the High Income demographic is traditionally associated with greater affordability, its population size may be smaller in comparison to the Middle Income and Upper Middle Income groups. Consequently, the overall number of fixed broadband subscriptions within the High Income category might be relatively lower than those of the Middle Income and Upper Middle Income categories.
+- It is worth recognising that while the High Income demographic is traditionally associated with greater wealth, the population size may be smaller in comparison to the Middle Income and Upper Middle Income groups. Consequently, the overall number of fixed broadband subscriptions within the High Income category is relatively lower than those of the Middle Income and Upper Middle Income categories due to the smaller population size.
 
 ---
 
@@ -414,9 +636,10 @@ j
 
 ```
 
-The bar chart showcases the top 15 countries with the highest fixed broadband subscriptions. Notably, China, the United States, and Japan claim the top three positions. China, with its vast population, leads the list with the highest number of fixed broadband subscriptions. The United States and Japan, renowned for their technological advancements and innovation-driven societies, also demonstrate a strong presence in fixed broadband subscriptions.
+<i>Figure 10</i> showcases the top 15 countries with the highest fixed broadband subscriptions. 
 
-China's remarkable position in terms of fixed broadband subscriptions can be attributed to its large population size, highlighting the significance of catering to the connectivity needs of a massive user base. Meanwhile, the United States and Japan's prominent positions can be attributed to their technological prowess and emphasis on fostering a culture of innovation, which leads to a greater demand and adoption of fixed broadband services.
+- With its vast population, China leads the list with the highest number of fixed broadband subscriptions. The United States and Japan, renowned for their technological advancements and innovation-driven societies, also demonstrate a strong presence in fixed broadband subscriptions.
+
 
 ---
 
@@ -443,11 +666,14 @@ k
 
 ```
 
-The bar chart presented in Figure 10 illustrates the lowest 15 countries in terms of fixed broadband subscription. These countries exhibit a notable contrast when compared to the previous chart, primarily due to their limited number of subscriptions, which is below 20,000. This disparity can be attributed to several factors, including the overall economic prosperity and the countries' capacity to provide widespread access to fixed broadband services.
+The bar chart presented in <i>Figure 11</i> presents the lowest 15 countries in terms of fixed broadband subscription. 
 
-It is noteworthy that a significant portion of the countries depicted in this graph are located in Sub-Saharan Africa. Despite the relatively large populations of countries like the Central African Republic, Congo, and South Sudan, their limited fixed broadband subscription numbers can be attributed to factors such as economic stability and political circumstances, which impact their ability to provide widespread access to broadband services.
+- These countries exhibit a major contrast when compared to the previous chart, primarily due to their limited number of subscriptions, which is below 20,000. This disparity can be attributed to several factors, including the overall economic prosperity and the countries' capacity to provide widespread access to fixed broadband services.
 
-Moreover, the relatively smaller populations of some countries in this group further contribute to their lower rates of fixed broadband subscription. Additionally, the presence of small Pacific islands like Nauru, Tuvalu, Palau, and others also affects their subscription rates due to their limited population size and geographical constraints.
+- A significant portion of the countries shown in this graph are located in Sub-Saharan Africa. Despite the relatively large populations of countries like the Central African Republic, Congo, and South Sudan, their limited fixed broadband subscription numbers can be attributed to factors such as economic stability and political circumstances, which impact their ability to provide widespread access to broadband services.
+
+- Additionally, the presence of small Pacific islands like Nauru, Tuvalu, Palau, and others also affects their subscription rates due to their limited population size and geographical constraints.
+
 
 ---
 
@@ -468,21 +694,29 @@ l
 
 ```
 
-The line chart illustrates the growth of fixed broadband subscriptions across regions, revealing that Sub-Saharan Africa experiences comparatively lower growth. This discrepancy can be attributed to the region's overall economic conditions, impacting its ability to invest in and develop broadband infrastructure. 
+The line chart illustrates the growth of fixed broadband subscriptions across regions, revealing that Sub-Saharan Africa experiences comparatively lower growth. 
+
+- This discrepancy can be attributed to the region's overall economic conditions, impacting its ability to invest in and develop broadband infrastructure. 
 
 
 --- 
 
+
 ### **Conclusion** 
 
-In conclusion, this report has explored various aspects of Internet usage and connectivity across different regions and socioeconomic backgrounds. Through the analysis of data presented in line charts, bar graphs, heat maps, and boxplots, we have gained valuable insights into the global landscape of Internet adoption.
+This report has explored various aspects of Internet usage and connectivity across different regions and socioeconomic backgrounds.The data reveals disparities in Internet adoption based on factors such as geographic location, population size, and socioeconomic conditions. While some regions and countries exhibit high rates of Internet usage, there are still many countries that have limited access to the Internet. 
 
-The results underline the significance of the Internet in modern society and its effects on a range of areas, including economic growth, communication, and education. It is important to note that not everyone in the globe has access to or uses the Internet equally.
+The analysis shows the influence of factors such as population size and economic development on Internet usage. Countries with larger populations tend to have higher numbers of Internet users, while regions with stronger economies demonstrate higher levels of connectivity.
 
-The data reveals disparities in Internet adoption based on factors such as geographic location, population size, and socioeconomic conditions. While some regions and countries exhibit high rates of Internet usage, others are behind due to limited infrastructure, economic challenges, or social barriers.
+COVID-19 also had a big impact on Internet usage, with a noticeable increase seen in several areas. Due to the pandemic, people are able to access the Internet more frequently because of remote work and online education.
 
-The analysis showcases the influence of factors such as population size and economic development on Internet usage. Countries with larger populations tend to have higher numbers of Internet users, while regions with stronger economies demonstrate higher levels of connectivity.
+The report highlights the importance of understanding and addressing the disparities in Internet usage across regions and socioeconomic backgrounds.
 
-The COVID-19 epidemic also had a big impact on Internet usage, with a noticeable increase seen in several areas. Due to the pandemic, more people than ever before have access to the Internet thanks to remote work, online education, and greater reliance on digital platforms for a variety of activities.
 
-Ultimately, this report highlights the importance of understanding and addressing the disparities in Internet usage across regions and socioeconomic backgrounds.
+--- 
+
+
+### **Reference** 
+
+H, Ritchie., E, Mathieu., M, Roser., and E, Ortiz-Ospina. (2023). <i>Internet</i>. OurWorldInData. https://ourworldindata.org/internet    
+
