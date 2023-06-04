@@ -1,5 +1,5 @@
 ---
-title: "ETO5513 Project Proposal"
+title: "ETO5513 Collaborative and reproducible practices Project Proposal"
 author: "Jane Nguyen"
 date: "2023-05-03"
 output: html_document
