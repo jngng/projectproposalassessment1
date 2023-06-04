@@ -715,6 +715,8 @@ The report highlights the importance of understanding and addressing the dispari
 
 --- 
 
+
 ### **Reference** 
 
-Hannah Ritchie, Edouard Mathieu, Max Roser and Esteban Ortiz-Ospina (2023) - "Internet". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/internet'
+H, Ritchie., E, Mathieu., M, Roser., and E, Ortiz-Ospina. (2023). <i>Internet</i>. OurWorldInData. https://ourworldindata.org/internet    
+
