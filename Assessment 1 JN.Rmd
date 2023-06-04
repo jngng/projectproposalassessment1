@@ -92,7 +92,7 @@ kable(individualsUsingInternetVariables, format = "html", align = "c") %>%
 ```
 
 
-Data Set 3 contains variables: 'Entity', 'Code', 'Year' and 'Fixed broadband subscriptions'     
+Data Set 3 contains variables: 'Entity', 'Code', 'Year' and 'Fixed Broadband Subscriptions'     
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
 
@@ -116,12 +116,75 @@ kable(landlineInternetSubscriptionsVariables, format = "html", align = "c") %>%
 
 ---
 
-### **Data set description**
-Here you need to report on your data. Specifically, the size of our data sets, such as the number of observations, variables and variable types. You will need to include the following:
+### **Data Set Description**    
 
-Using inline R code, write a sentence describing the number of variables and observations in your data set.
-In addition, create a screenshot image of your code and save it as a png file. Upload this png file inside the 'Image' folder in your Rstudio Cloud project
+Data Set 1 contains 25,516 observations and is 205,432 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Number of Internet Users').         
 
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get byte size of data set 1 
+
+dataSet1BytesSize = object.size(numberOfInternetUsers) 
+
+cat("The byte size in Data Set 1 is:", dataSet1BytesSize , "\n")
+
+# get total observations of data set 1
+
+dataSet1Size = dim(numberOfInternetUsers)
+dataSet1SizeNumberOfRows = dataSet1Size[1]
+dataSet1SizeNumberOfColumns = dataSet1Size[2]
+
+totalDataSet1Size = dataSet1SizeNumberOfRows * dataSet1SizeNumberOfColumns
+
+cat("The number of observations in Data Set 1 is:", totalDataSet1Size )
+
+```
+
+
+Data Set 2 contains 26,132 observations and is 210,248 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Individuals using the Internet (% of population)').    
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get size of data set 2
+
+dataSet2BytesSize = object.size(individualsUsingInternet) 
+
+cat("The byte size in Data Set 2 is:", dataSet2BytesSize , "\n")
+
+# get total observations of data set 2
+
+dataSet2Size = dim(individualsUsingInternet)
+dataSet2SizeNumberOfRows = dataSet2Size[1]
+dataSet2SizeNumberOfColumns = dataSet2Size[2]
+
+totalDataSet2Size = dataSet2SizeNumberOfRows * dataSet2SizeNumberOfColumns
+
+cat("The number of observations in Data Set 2 is:", totalDataSet2Size )
+
+```
+
+
+Data Set 3 contains 15,576 observations and is 135,568 in bytes size. It overall has 4 variables: 2 of them are String variables ('Entity' and 'Code') and 2 are Integer variables ('Year' and 'Fixed Broadband Subscriptions').    
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, error = FALSE}
+
+# get size of data set 3
+
+dataSet3BytesSize = object.size(landlineInternetSubscriptions) 
+
+cat("The byte size in Data Set 3 is:", dataSet3BytesSize , "\n")
+
+# get total observations of data set 3
+
+dataSet3Size = dim(landlineInternetSubscriptions)
+dataSet3SizeNumberOfRows = dataSet3Size[1]
+dataSet3SizeNumberOfColumns = dataSet3Size[2]
+
+totalDataSet3Size = dataSet3SizeNumberOfRows * dataSet3SizeNumberOfColumns
+
+cat("The number of observations in Data Set 3 is:", totalDataSet3Size )
+
+```
 
 ---
 
