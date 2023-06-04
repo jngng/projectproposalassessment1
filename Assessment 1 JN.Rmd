@@ -666,7 +666,7 @@ k
 
 ```
 
-The bar chart presented in <i>Figure 10</i> presents the lowest 15 countries in terms of fixed broadband subscription. 
+The bar chart presented in <i>Figure 11</i> presents the lowest 15 countries in terms of fixed broadband subscription. 
 
 - These countries exhibit a major contrast when compared to the previous chart, primarily due to their limited number of subscriptions, which is below 20,000. This disparity can be attributed to several factors, including the overall economic prosperity and the countries' capacity to provide widespread access to fixed broadband services.
 
